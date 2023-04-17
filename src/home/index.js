@@ -28,7 +28,8 @@ const HomePage = () => {
                     <h3 className="mb-4">Dashboard</h3>
                     <div className="row">
                       <div className="col-md-6">
-                        <div className="card feature-card">
+                        <Link to="/search" className="text-decoration-none text-dark">
+                          <div className="card feature-card">
                           <img
                               src={stockGraph}
                               alt="Stock Graph"
@@ -41,6 +42,7 @@ const HomePage = () => {
                             </p>
                           </div>
                         </div>
+                        </Link>
                       </div>
                       {/* Add more feature cards here */}
                       <div className="col-md-6">

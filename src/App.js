@@ -18,16 +18,20 @@ import CurrentUser from "./users/current-user";
 import TopNavigationBar from "./home/top-navigation-bar";
 import WsbPage from "./wsb"
 import WsbSearch from "./wsb/wsb-search"
-import welcomeRecentNewUsersReducer
-  from "./home/welcome/welcome-recent-new-users-reducer";
+import welcomeRecentNewUsersReducer from "./home/welcome/welcome-recent-new-users-reducer";
 import followsReducer from "./follows/follows-reducer";
-
+import SearchSingleStock from "./search";
+import stockReducer from "./stock/stock-reducer";
+import StockDetailScreen from "./search/stock-details";
+import reviewsReducer from "./reviews/reviews-reducer";
 
 const store = configureStore({
   reducer: {
     users: usersReducer,
     welcomeUsers: welcomeRecentNewUsersReducer,
-    follows:followsReducer
+    follows:followsReducer,
+    singlestock: stockReducer,
+    reviews: reviewsReducer,
   }
 })
 
@@ -54,8 +58,10 @@ function App() {
               <Route path="edit-profile" element={<EditProfileComponent/>}/>
               <Route path="/wsb" element={<WsbPage/>} />
               <Route path="/wsb/search" element={<WsbSearch />} />
-              <Route path="/wsb/search/:searchTerm" element={<WsbSearch />}
-              />
+              <Route path="/wsb/search/:searchTerm" element={<WsbSearch />}/>
+              <Route path="/search" element={<SearchSingleStock/>}/>
+              <Route path="/search/:searchStockCode" element={<SearchSingleStock/>}/>
+              <Route path="/search/stock/:searchStockCode" element={<StockDetailScreen/>}/>
             </Routes>
           </CurrentUser>
         </div>
