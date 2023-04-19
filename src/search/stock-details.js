@@ -1,24 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import {Link, useParams} from "react-router-dom";
-import {findStockBySymbol} from "../stock/stock-service";
-import {useDispatch, useSelector} from "react-redux";
-import {userBuyIn} from "../buyIn/buyIn-service";
-import {findBuyInByUserId} from "../buyIn/buyIn-service";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { findStockBySymbol } from "../stock/stock-service";
+import { useDispatch, useSelector } from "react-redux";
+import { userBuyIn } from "../buyIn/buyIn-service";
+import { findBuyInByUserId } from "../buyIn/buyIn-service";
 import {
   createReviewThunk, findReivewByStockThunk, findReviewByAuthorThunk
 } from "../reviews/review-thunks";
-import {findReviewByStock, findReviewByAuthor} from "../reviews/reviews-service";
+import { findReviewByStock, findReviewByAuthor } from "../reviews/reviews-service";
 
 
 const StockDetailScreen = () => {
-  const {searchStockCode} = useParams();
+  const { searchStockCode } = useParams();
   const [details, setDetails] = useState([]);
   const [buyInList, setBuyInList] = useState([]);
-  const {currentUser} = useSelector((state) => state.users);
-  const[review, setReview] = useState('');
+  const { currentUser } = useSelector((state) => state.users);
+  const [review, setReview] = useState('');
   // const {allReviews} = useSelector((state) => state.reviews);
-  const[allRreviewStock, setAllReviewStock] = useState([]);
-  const[allRreviewUser, setAllReviewUser] = useState([]);
+  const [allRreviewStock, setAllReviewStock] = useState([]);
+  const [allRreviewUser, setAllReviewUser] = useState([]);
   const dispatch = useDispatch();
   const getDetails = async () => {
     const response = await findStockBySymbol(searchStockCode);
@@ -32,11 +32,18 @@ const StockDetailScreen = () => {
     const response = await findBuyInByUserId(currentUser._id);
     setBuyInList(response);
   };
+
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
   const handlePostReviewBtn = () => {
     dispatch(createReviewThunk({
       review,
       searchStockCode,
-    }))
+    }),
+      refreshPage()
+    )
   };
   const handleReviewStock = async () => {
     const response = await findReviewByStock(searchStockCode);
@@ -53,14 +60,14 @@ const StockDetailScreen = () => {
     handleReviewStock();
   }, []);
 
-  return(
-      <>
-        <h1>Stock details: {searchStockCode}</h1>
-        <ul className={"list-group"}>
+  return (
+    <>
+      <h1>Stock details: {searchStockCode}</h1>
+      <ul className={"list-group"}>
         {
           details && details.map((detail) => {
             return (
-                <>
+              <>
                 <li className={"list-group-item"}>  Ticker: {detail.ticker} </li>
                 <li className={"list-group-item"}>  Name: {detail.name} </li>
                 <li className={"list-group-item"}>  Exchange Short: {detail.exchange_short}  </li>
@@ -82,47 +89,45 @@ const StockDetailScreen = () => {
             );
           })
         }
-        </ul>
+      </ul>
 
+      <h1>Current user: {currentUser && currentUser.username}</h1>
+      {/*{ currentUser && (<>*/}
+      {/*  <button onClick={buyIn} className={"btn btn-success"}>Buy In</button>*/}
+      {/*  <button className={"btn btn-danger"}>Sell Out</button>*/}
+      {/*  <h1>{currentUser.username}'s buy in advise: </h1>*/}
+      {/*  <ul className={"list-group"}>*/}
+      {/*  {*/}
+      {/*    buyInList && buyInList.map((item) => (*/}
+      {/*    <li className={"list-group-item"}>*/}
+      {/*      <Link to={`/search/${item.stockId}`}>*/}
+      {/*        <div className={"row"}>{item.stockId}</div>*/}
+      {/*      </Link>*/}
+      {/*    </li>*/}
+      {/*    ))*/}
+      {/*  }*/}
+      {/*  </ul>*/}
+      {/*  </>)*/}
+      {/*}*/}
 
-        <h1>Current user: { currentUser && currentUser.username}</h1>
-        {/*{ currentUser && (<>*/}
-        {/*  <button onClick={buyIn} className={"btn btn-success"}>Buy In</button>*/}
-        {/*  <button className={"btn btn-danger"}>Sell Out</button>*/}
-        {/*  <h1>{currentUser.username}'s buy in advise: </h1>*/}
-        {/*  <ul className={"list-group"}>*/}
-        {/*  {*/}
-        {/*    buyInList && buyInList.map((item) => (*/}
-        {/*    <li className={"list-group-item"}>*/}
-        {/*      <Link to={`/search/${item.stockId}`}>*/}
-        {/*        <div className={"row"}>{item.stockId}</div>*/}
-        {/*      </Link>*/}
-        {/*    </li>*/}
-        {/*    ))*/}
-        {/*  }*/}
-        {/*  </ul>*/}
-        {/*  </>)*/}
-        {/*}*/}
+      {
+        currentUser &&
+        <div>
+          <h1>Post Your Review: </h1>
+          <textarea
+            onChange={(e) => setReview(e.target.value)}
+            className={"form-control"}> </textarea>
+          <button className={"btn btn-primary"} onClick={handlePostReviewBtn}>Post Review</button>
 
+          {/*<pre>*/}
+          {/*  {JSON.stringify(allRreviewStock, null, 2)}*/}
+          {/*</pre>*/}
+          {/*<pre>*/}
+          {/*  {JSON.stringify(allRreviewUser, null, 2)}*/}
+          {/*</pre>*/}
 
-        {
-          currentUser &&
-          <div>
-            <h1>Post Your Review: </h1>
-            <textarea
-                onChange={(e) => setReview(e.target.value)}
-                className={"form-control"}> </textarea>
-            <button className={"btn btn-primary"} onClick={handlePostReviewBtn}>Post Review</button>
-
-            {/*<pre>*/}
-            {/*  {JSON.stringify(allRreviewStock, null, 2)}*/}
-            {/*</pre>*/}
-            {/*<pre>*/}
-            {/*  {JSON.stringify(allRreviewUser, null, 2)}*/}
-            {/*</pre>*/}
-
-            <h1>Others Review On: {searchStockCode}</h1>
-            <ul className={"list-group"}>
+          <h1>Others Review On: {searchStockCode}</h1>
+          <ul className={"list-group"}>
             {
               allRreviewStock && allRreviewStock.map((review) =>
                 <li className={"list-group-item"}>
@@ -132,33 +137,36 @@ const StockDetailScreen = () => {
                     {review.author.username}
                   </div>
                 </li>
-                )
+              )
             }
-            </ul>
-            <br/>
-            <h1>Your Review Over Other Stocks</h1>
-            <ul className={"list-group"}>
-              {
-                  allRreviewUser && allRreviewUser.map((review) =>
-                      <li className={"list-group-item"}>
-                        {review.review}
-                        <div className={"float-end"}>
-                          <span className={"fw-bold"}>For stock: </span>
-                          {review.searchStockCode}
-                        </div>
-                      </li>
-                  )
-              }
-            </ul>
-            <br/>
-            <br/>
-            <br/>
-          </div>
-        }
+          </ul>
+          <br />
+          <h1>Your Review Over Other Stocks</h1>
 
+          <button className={"btn btn-primary"} onClick={handleReivewUser}>Show results</button>
 
+          <ul className={"list-group"}>
+            {
+              allRreviewUser && allRreviewUser.map((review) =>
+                <li className={"list-group-item"}>
+                  {review.review}
+                  <Link to={`/search/${review.searchStockCode}`}>
+                    <div className={"float-end"}>
+                      <span className={"fw-bold"}>For stock: </span>
+                      {review.searchStockCode}
+                    </div>
+                  </Link>
+                </li>
+              )
+            }
+          </ul>
+          <br />
+          <br />
+          <br />
+        </div>
+      }
 
-      </>
+    </>
   );
 }
 
