@@ -47,6 +47,7 @@ Start the server
 ```bash
   npm start
 ```
+Don't forget to change the path of server api to localhost:4000 in constances.js, buyIn-service.js, reviews-service.js 
 
 
 ## Demo
