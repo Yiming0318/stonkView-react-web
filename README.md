@@ -1,70 +1,67 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# StonkView Web App
 
-## Available Scripts
+The webpage for stonkers who are ready to the moon.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Search and review stocks
+- WSB Sentiment Tracker
+- Three tiers of users
+- Real time stock price 
+- Follow & Unfollow users
+- Edit Personal Profile
+- Adaptive layouts fit to user screen size 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+**Client:** React, Redux, Bootstrap
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Server:** Node, Express, MongoDB
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Run Locally
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Install dependencies
 
-## Learn More
+```bash
+  npm install
+  npm install bootstrap
+  npm install bootstrap-icons
+  npm install react-router
+  npm install react-router-dom
+  npm install redux
+  npm install react-redux
+  npm install @reduxjs/toolkit
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Start the server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  npm start
+```
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Demo
 
-### Analyzing the Bundle Size
+[Netlify & Render Free Tier Supported (may have some network issues)](https://main--remarkable-lokum-75f6ec.netlify.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Screenshots
+<img width="1181" alt="Screen Shot 2023-04-20 at 2 47 49 PM" src="https://user-images.githubusercontent.com/103970218/233496288-b8cf7d2f-2572-4b49-b188-c441bb2d1891.png">
+<img width="1136" alt="Screen Shot 2023-04-20 at 2 48 04 PM" src="https://user-images.githubusercontent.com/103970218/233496445-34dc50ed-90c9-451a-b74e-dff602765f08.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img width="1153" alt="Screen Shot 2023-04-20 at 2 47 14 PM" src="https://user-images.githubusercontent.com/103970218/233496609-afaa0b29-c8f3-467c-90f0-3232d3690850.png">
 
-### Advanced Configuration
+<img width="1065" alt="Screen Shot 2023-04-20 at 2 47 36 PM" src="https://user-images.githubusercontent.com/103970218/233496636-f48c4f91-e2e8-4fd0-94fc-e4727f7f123c.png">
+<img width="1095" alt="Screen Shot 2023-04-20 at 2 48 33 PM" src="https://user-images.githubusercontent.com/103970218/233496759-b116336d-6db4-41f5-bc57-83a12859cf7d.png">
+<img width="1091" alt="Screen Shot 2023-04-20 at 3 02 26 PM" src="https://user-images.githubusercontent.com/103970218/233497115-b9bd337b-d1fe-402e-853f-55e14c76844e.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img width="657" alt="Screen Shot 2023-04-20 at 3 02 34 PM" src="https://user-images.githubusercontent.com/103970218/233497130-3a7c451b-7855-48cc-83ee-41d8df20beea.png">
