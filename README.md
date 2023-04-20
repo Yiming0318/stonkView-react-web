@@ -62,7 +62,10 @@ Don't forget to change the path of server api to localhost:4000 in constances.js
 <img width="1153" alt="Screen Shot 2023-04-20 at 2 47 14 PM" src="https://user-images.githubusercontent.com/103970218/233496609-afaa0b29-c8f3-467c-90f0-3232d3690850.png">
 
 <img width="1065" alt="Screen Shot 2023-04-20 at 2 47 36 PM" src="https://user-images.githubusercontent.com/103970218/233496636-f48c4f91-e2e8-4fd0-94fc-e4727f7f123c.png">
-<img width="1095" alt="Screen Shot 2023-04-20 at 2 48 33 PM" src="https://user-images.githubusercontent.com/103970218/233496759-b116336d-6db4-41f5-bc57-83a12859cf7d.png">
+<img width="1095" alt="Screen Shot 2023-04-20 at 2 48 33 PM" src="https://user-images.githubusercontent.com/103970218/233496759-b116336d-6db4-41f5-bc57-83a12859cf7d.png"><img width="1185" alt="Screen Shot 2023-04-20 at 2 49 24 PM" src="https://user-images.githubusercontent.com/103970218/233500348-cb9f1a4e-08ff-4281-b24d-5e24ea2fbb09.png">
+
+
+
 <img width="1091" alt="Screen Shot 2023-04-20 at 3 02 26 PM" src="https://user-images.githubusercontent.com/103970218/233497115-b9bd337b-d1fe-402e-853f-55e14c76844e.png">
 
 <img width="657" alt="Screen Shot 2023-04-20 at 3 02 34 PM" src="https://user-images.githubusercontent.com/103970218/233497130-3a7c451b-7855-48cc-83ee-41d8df20beea.png">
