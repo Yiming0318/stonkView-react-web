@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const USERS_API = "http://localhost:4000/users";
-
+// const USERS_API = "http://localhost:4000/users";
+const USERS_API = "https://stonk-view-server.onrender.com/users";
 const api = axios.create({
   withCredentials: true,
 });

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const REVIEW_API = 'http://localhost:4000/reviews';
-
+// const REVIEW_API = 'http://localhost:4000/reviews';
+const REVIEW_API = 'https://stonk-view-server.onrender.com/reviews';
 const api = axios.create({
   withCredentials: true,
 });
